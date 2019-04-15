@@ -53,6 +53,7 @@ Inside the ReadInFiles.java we were able to process the data in a few different 
 
 |Feature set name|Description|
 |Traditional bag of words|Each word used represents a feature. If the post contains a word n times its input has a n at that feature, and a 0 otherwise|
+|--------------------------------------|-------------------------------------------------------------------------------------------|
 |Bag of words with bigrams|Each pair of words represent a feature. works the same as the traditional bag of words.|
 |Bag of words with bigrams and nltk root word processing|Same as bag of words with bigrams, but all words are modified to be their “root” word. (For example, abolished->abolish, cats->cat)|
 |Bag of words with bigrams, nltk root word processing, and semantic analysis|Same as the bag of words with bigrams and nltk root word processing, but if TextBlob thought the sentence had a negative connotation every element of the input was multiplied by -1.|
