@@ -5,29 +5,25 @@ In order to collect our data we used a tool called “redditDataExtractor” whi
 
 The data was the processed using the ReadInFiles.java found in the repository. When running this make sure the SemanticAnalysis.py file is in the correct place relative to it otherwise an error will be thrown.
 
-Then, the data was analyzed by either running train.py or semanticanalysis.py 
+Then, the data was analyzed by either running train.py (for keras models) or SVMtrain.py (for sklearn models) 
 
 # Requirements:
--skleran
 
--tensorflow
-
--keras
-
--textblob
-
--nklt
-
--pandas
-
--numpy
-
--various other python packages
+|-------------------------------------------|
+|sklearn|
+|tensorflow|
+|keras|
+|textblob|
+|nklt|
+|pandas|
+|numpy|
+|various other python packages|
 
 # Recommended:
--a cuda enabled graphics card
 
--cuDNN
+|-------------------------------------------|
+|a cuda enabled graphics card|
+|cuDNN|
 
 # By: Scott Stewart, Reid Holben, Caroline Hylton and Alex Foyer
 
