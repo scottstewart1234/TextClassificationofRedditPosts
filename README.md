@@ -32,6 +32,7 @@ Then, the data was analyzed by either running train.py or semanticanalysis.py
 # By: Scott Stewart, Reid Holben, Caroline Hylton, Alex Foyer
 The data we downloaded for it:
 
+# The Data
 
 |Subreddit| Conservative or Liberal|Subscriber Count|Total Data |Cleaned Data|
 |---------| -----------------------|----------------|-----------|------------|
@@ -49,13 +50,31 @@ The data we downloaded for it:
 |/r/RonPaul|Conservative|30,000|973|930|
 
 The data was cleaned using the ReadInFiles.java, which has a method for removing repost and crossposts. The data was downloaded using the reddit data extractor.
-Inside the ReadInFiles.java we were able to process the data in a few different ways, and they have been described below. The booleans near the top of the file make this possible, and by changing them between true and false you can automatically do this for your program. 
+ 
+
+# The Features
+Inside the ReadInFiles.java we were able to process the data in a few different ways, and they have been described below. The booleans near the top of the file make this possible, and by changing them between true and false you can automatically do this for your program.
 
 |Feature set name|Description|
 |--------------------------------------|-------------------------------------------------------------------------------------------|
 |Traditional bag of words|Each word used represents a feature. If the post contains a word n times its input has a n at that feature, and a 0 otherwise|
 |Bag of words with bigrams|Each pair of words represent a feature. works the same as the traditional bag of words.|
 |Bag of words with bigrams and nltk root word processing|Same as bag of words with bigrams, but all words are modified to be their “root” word. (For example, abolished->abolish, cats->cat)|
-|Bag of words with bigrams, nltk root word processing, and semantic analysis|Same as the bag of words with bigrams and nltk root word processing, but if TextBlob thought the sentence had a negative connotation every element of the input was multiplied by -1.|
+|Bag of words with bigrams, nltk root word processing, and semantic analysis|Same as the bag of words with bigrams and nltk root word processing, but if TextBlob thought the sentence had a negative connotation every element of the input was multiplied by -1. it should be noted that this had an extreemly negative affect on performance|
+
+We found that the bag of words with bigrams gave the best results for all of our models
+# The Models
+We used a couple different models. They are described below.
+
+|Model|Description|Best Accuracy|
+|--------------|-------------------|----------------|
+|Simple Neural Network (2 layers)| A very simple neural network made with Keras| 75.05%|
+|Neural Network (5 Layers)| A deep(er) neural network made with keras| 74.69%|
+|Linear SVM| A linear SVM made with SKLearn| 69.67% |
+|Gaussian Naive Bayes | A gaussian naive bayes classifier made with SKLearn| 60% |
+|Multinomial Naive Bayes|A Multinomial naive bayes classifier made with SKLearn| 73.31%|
+|Always Choose “Conservative”| Literally just pick conservative (what we had slightly more data for)| 56.5%|
+
+
 
 
