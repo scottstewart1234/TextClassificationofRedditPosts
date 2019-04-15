@@ -50,7 +50,7 @@ The data we downloaded using the reddit data extractor can be seen below. The cl
 |/r/LateStageCapitalism|Liberal|402,900|1,258|1,153|
 |/r/RonPaul|Conservative|30,000|973|930|
 
-The data was cleaned using the ReadInFiles.java, which has a method for removing repost and crossposts. The data was downloaded using the reddit data extractor.
+The data was cleaned using the ReadInFiles.java, which has a method for removing repost and crossposts. The data was downloaded using the reddit data extractor. 
  
 
 # The Features
