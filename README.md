@@ -29,10 +29,11 @@ Then, the data was analyzed by either running train.py or semanticanalysis.py
 
 -cuDNN
 
-# By: Scott Stewart, Reid Holben, Caroline Hylton, Alex Foyer
-The data we downloaded for it:
+# By: Scott Stewart, Reid Holben, Caroline Hylton and Alex Foyer
+
 
 # The Data
+The data we downloaded using the reddit data extractor can be seen below. The cleaned data removing duplicates (reposts, crossposts) has a split favoring conservative posts, 57% to 43% (7785 posts to 5982 posts). 
 
 |Subreddit| Conservative or Liberal|Subscriber Count|Total Data |Cleaned Data|
 |---------| -----------------------|----------------|-----------|------------|
@@ -75,6 +76,7 @@ We used a couple different models. They are described below.
 |Multinomial Naive Bayes|A Multinomial naive bayes classifier made with SKLearn| 73.31%|
 |Always Choose “Conservative”| Literally just pick conservative (what we had slightly more data for)| 56.5%|
 
-
+# Analysis of results
+Our results show that a simple neural network (with 2 layers and one reshape layer) was able to outperform our other models by a small margin. By changing our feature set to include a bigram model we were able to slightly increase our accuracy. It should be noted that the bigram model was built on top of the already existing feature set, and both were used in making the final model. Oddly, one of the models actually performed worse than guessing “conservative” for every post.
 
 
