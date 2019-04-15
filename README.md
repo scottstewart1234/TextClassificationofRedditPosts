@@ -9,16 +9,24 @@ Then, the data was analyzed by either running train.py or semanticanalysis.py
 
 # Requirements:
 -skleran
+
 -tensorflow
+
 -keras
+
 -textblob
+
 -nklt
+
 -pandas
+
 -numpy
+
 -various other python packages
 
 # Recommended:
 -a cuda enabled graphics card
+
 -cuDNN
 
 # By: Scott Stewart, Reid Holben, Caroline Hylton, Alex Foyer
