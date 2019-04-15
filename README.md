@@ -19,6 +19,8 @@ Then, the data was analyzed by either running train.py (for keras models) or SVM
 |pandas|
 |numpy|
 |various other python packages|
+|The ability to run python|
+|The ability to compile and run java|
 
 # Recommended:
 
