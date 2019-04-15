@@ -9,6 +9,7 @@ Then, the data was analyzed by either running train.py (for keras models) or SVM
 
 # Requirements:
 
+|Requirements|
 |-------------------------------------------|
 |sklearn|
 |tensorflow|
@@ -21,6 +22,7 @@ Then, the data was analyzed by either running train.py (for keras models) or SVM
 
 # Recommended:
 
+|Recommendations|
 |-------------------------------------------|
 |a cuda enabled graphics card|
 |cuDNN|
