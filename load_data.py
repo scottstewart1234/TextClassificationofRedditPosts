@@ -9,7 +9,7 @@ import pandas as pd
 def load_datasets():
     
 
-    Dataframe = pd.read_csv("F:\\DataMining\\text-classification-simple\\outputNoUniques.csv")
+    Dataframe = pd.read_csv("F:\\DataMining\\TextClassificationofRedditPosts\\outputBituplets.csv")
     X = Dataframe.iloc[:,:(Dataframe.shape[1]-1)];
     y= Dataframe.iloc[:,(Dataframe.shape[1]-1):];
     #X = X.values;

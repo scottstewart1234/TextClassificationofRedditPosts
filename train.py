@@ -4,8 +4,8 @@ from keras.layers import Dropout
 from keras.layers import Flatten
 from keras.constraints import maxnorm
 from keras.optimizers import SGD, RMSprop, Adam
-from keras.layers import Conv2D
-from keras.layers.convolutional import MaxPooling2D
+from keras.layers import Conv1D
+from keras.layers.convolutional import MaxPooling1D
 from keras.layers import BatchNormalization
 from keras.utils import np_utils
 from keras import backend as K
@@ -23,7 +23,7 @@ def pre_process(X):
 
     # normalize inputs from 0-255 to 0.0-1.0
     X=X.astype('float32')
-    X = X / 255.0
+    #X = X / 255.0
     return X
 
 def one_hot_encode(y):
@@ -37,8 +37,15 @@ def define_model(num_classes,epochs, dim):
     # Create the model
     model = Sequential()
     #added these
+   
+    model.add(Dense(512,input_dim=dim, activation='sigmoid', kernel_constraint=BatchNormalization(axis=-1,  epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)))
+  
+    model.add(Dropout(0.25))
     
-    model.add(Dense(512,input_dim=dim, activation='linear', kernel_constraint=BatchNormalization(axis=-1,  epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)))
+   # model.add(Dense(200, activation='sigmoid',kernel_constraint=BatchNormalization(axis=-1,  epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)))
+    model.add(Dense(120, activation='sigmoid',kernel_constraint=BatchNormalization(axis=-1,  epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)))
+    
+    model.add(Dense(20, activation='sigmoid',kernel_constraint=BatchNormalization(axis=-1,  epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None)))
     #model.add(Dropout(0.25))
     model.add(Dense(num_classes, activation='sigmoid'))
     # Compile model
@@ -49,7 +56,7 @@ def define_model(num_classes,epochs, dim):
     print(model.summary())
     return model
 
-
+#%%
 # load data
 X,y=load_data.load_datasets()
 
@@ -64,7 +71,7 @@ X = X.values;
 
 #%%
 #split dataset
-X_test, X_train, y_test, y_train = train_test_split(X, y, test_size=0.8, random_state=7)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=7)
 
 epochs = 1000
 #define model
@@ -107,3 +114,6 @@ with open("model_face.json", "w") as json_file:
 # serialize weights to HDF5
 model.save_weights("model_face.h5")
 print("Saved model to disk")
+#%%
+from keras.utils import plot_model
+plot_model(model, to_file='model.png')
