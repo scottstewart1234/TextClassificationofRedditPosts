@@ -30,6 +30,7 @@ Then, the data was analyzed by either running train.py (for keras models) or SVM
 |cuDNN|
 # How to run
 Open the directory in terminal/commmand prompt
+
 type "python train.py"
 # By: Scott Stewart, Reid Holben, Caroline Hylton and Alex Foyer
 
